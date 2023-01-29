@@ -1,0 +1,23 @@
+2023-01-29 14:23:53,099 [INFO] Connection created...
+2023-01-29 14:23:53,172 [INFO] Created the tables...
+2023-01-29 14:23:53,192 [INFO] Entries not according to Data Rules for file hired_employees.csv:         id                   name              datetime  department_id  job_id
+1        2               Ty Hofer  2021-05-30T05:43:46Z            8.0     NaN
+66      67           Thia Morican  2021-03-10T19:27:10Z            NaN   104.0
+83      84         Ludvig Norwood  2021-02-26T18:47:53Z            3.0     NaN
+86      87  Cirstoforo Martinetto  2021-10-15T09:19:20Z            NaN    84.0
+96      97          Beltran Natte  2021-11-01T05:12:01Z            NaN    67.0
+...    ...                    ...                   ...            ...     ...
+1857  1858                    NaN  2021-06-28T03:01:01Z            6.0   144.0
+1859  1860          Marin Slipper  2022-02-08T10:39:02Z            4.0     NaN
+1868  1869         Cesaro Solomon                   NaN            6.0    66.0
+1924  1925             Cary Tothe                   NaN            3.0   104.0
+1986  1987         Shaina Wyldish  2021-12-13T10:05:09Z            NaN   102.0
+
+[70 rows x 5 columns]
+2023-01-29 14:23:53,284 [INFO] Entries not according to Data Rules for file departments.csv: Empty DataFrame
+Columns: [id, department]
+Index: []
+2023-01-29 14:23:53,315 [INFO] Entries not according to Data Rules for file jobs.csv: Empty DataFrame
+Columns: [id, job]
+Index: []
+2023-01-29 14:23:53,342 [INFO] Finish populating tables...

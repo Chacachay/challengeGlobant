@@ -3,14 +3,10 @@ import sqlalchemy.types
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from decouple import config
-from datetime import datetime
-import shutil
 import pandas as pd
-import requests
 import logging
-import sys
 
-# Configuration of logger...
+# Logger configuration...
 logging.basicConfig(
     level=logging.INFO,
     filename='debug.log',
