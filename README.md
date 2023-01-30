@@ -27,3 +27,4 @@ POSTGRES_URL=postgresql://[user[:password]@][netloc][:port][/dbname]
 
 * [Pycharm](https://www.jetbrains.com/pycharm/)
 * [Postgres](https://www.postgresql.org/)
+* [Airflow](https://airflow.apache.org/)
