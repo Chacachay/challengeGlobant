@@ -5,6 +5,7 @@ from airflow.operators.python_operator import PythonOperator
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from decouple import config
+import storedProcedures as sT
 
 
 tableList = config('tableList')
@@ -30,10 +31,15 @@ with DAG(
         start_date=datetime(2023, 1, 30),
         catchup=False,
 ) as dag:
+    storedprocedures = PythonOperator(
+        task_id="stored_procedures",
+        python_callable=sT.storedProcedures,
+    )
+
     backupOperator = PythonOperator(
         task_id="backup_tables",
         requirements="SQLAlchemy==1.4.37",
         python_callable=callStoredProcedure(),
     )
 
-    backupOperator
+    storedprocedures >> backupOperator
