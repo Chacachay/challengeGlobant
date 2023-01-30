@@ -20,7 +20,7 @@ engine = create_engine(postgres_url)
 logging.info("Connection created...")
 
 # Here we create the tables in Postgres
-fd = open('tableCreate.sql', 'r')
+fd = open('sql/tableCreate.sql', 'r')
 sqlFile = fd.read()
 fd.close()
 sqlCommands = sqlFile.split(';')

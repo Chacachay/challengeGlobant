@@ -6,20 +6,13 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from decouple import config
 
-import logging
-
-# Logger configuration...
-logging.basicConfig(
-    level=logging.INFO,
-    filename='debugDag.log',
-    filemode='w',
-    format="%(asctime)s [%(levelname)s] %(message)s",
-)
-
 
 tableList = config('tableList')
 
+
 def callStoredProcedure(tableList):
+    """This function calls the stored procedures for
+    creating table backups"""
     postgres_url = config('POSTGRES_URL')
     engine = create_engine(postgres_url)
     for i in tableList:
@@ -38,8 +31,8 @@ with DAG(
         catchup=False,
 ) as dag:
     backupOperator = PythonOperator(
-        task_id="virtualenv_classic",
-        requirements="colorama==0.4.0",
+        task_id="backup_tables",
+        requirements="SQLAlchemy==1.4.37",
         python_callable=callStoredProcedure(),
     )
 
