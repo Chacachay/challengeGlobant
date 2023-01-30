@@ -7,10 +7,11 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 from decouple import config
 import storedProcedures as sT
 
-
+# We create a list with all tables in need of backup
 tableList = config('tableList')
 
 
+# We create the function for running queries
 def callStoredProcedure(tableList):
     """This function calls the stored procedures for
     creating table backups"""
@@ -24,6 +25,7 @@ def callStoredProcedure(tableList):
         db.close()
 
 
+# Here we stage the Airflow DAG scheduled once a day at 1:00 am
 with DAG(
         "backupTables",
         description="Creates a table to table backup",

@@ -3,10 +3,12 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from decouple import config
 
+# Here we create the Postgres connection
 postgres_url = config('POSTGRES_URL')
 engine = create_engine(postgres_url)
 tableList = config('tableList')
 
+# Here we create the tables for backup
 fd = open('sql/backupTableCreate.sql', 'r')
 sqlFile = fd.read()
 fd.close()
@@ -17,6 +19,7 @@ for command in sqlCommands:
     db.commit()
     db.close()
 
+# Here we run queries for creating the stored provedures
 for i in tableList:
     db = scoped_session(sessionmaker(bind=engine))
     db.execute(
